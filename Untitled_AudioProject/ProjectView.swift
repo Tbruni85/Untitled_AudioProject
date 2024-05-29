@@ -20,7 +20,7 @@ struct ProjectView: View {
             
             Text(projectName)
                 .foregroundStyle(.primary)
-                .font(.system(size: 25))
+                .font(.system(size: 20))
                 .fontWeight(.semibold)
                 .padding(.bottom, 5)
                 .padding(.trailing, 5)

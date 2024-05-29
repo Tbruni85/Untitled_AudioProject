@@ -19,7 +19,11 @@ struct HomeView: View {
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: colums, content: {
                         ForEach(viewModel.audios, id: \.self) { project in
-                            ProjectView(projectName: project.relativeString)}
+                            ProjectView(projectName: project.relativeString.replacingOccurrences(of: ".m4a", with: ""))
+                                .onTapGesture {
+                                    print("tapped \(project.relativeString)")
+                                }
+                        }
                     })
                 }
                 .toolbar(content: {
