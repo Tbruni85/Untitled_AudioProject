@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectView: View {
     
-    let project: Project
+    let projectName: String
     
     var body: some View {
         
@@ -18,7 +18,7 @@ struct ProjectView: View {
                 .fill(Color.random.gradient)
                 .frame(height: 175)
             
-            Text(project.name)
+            Text(projectName)
                 .foregroundStyle(.primary)
                 .font(.system(size: 25))
                 .fontWeight(.semibold)
@@ -29,5 +29,5 @@ struct ProjectView: View {
 }
 
 #Preview {
-    ProjectView(project: Project(name: "Project EZ", fileName: "aosdja"))
+    ProjectView(projectName: "Project EZ")
 }

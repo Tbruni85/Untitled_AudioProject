@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Untitled_AudioProjectApp: App {
+    
+    @StateObject var viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environmentObject(viewModel)
         }
     }
 }
