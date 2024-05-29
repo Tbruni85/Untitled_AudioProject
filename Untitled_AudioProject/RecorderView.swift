@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RecorderView.swift
 //  Untitled_AudioProject
 //
 //  Created by Tiziano Bruni on 29/05/2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct ContentView: View {
+struct RecorderView: View {
     
     @State var record = false
     @State var session: AVAudioSession!
@@ -27,7 +27,6 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    
                     do {
                         
                         if record {
@@ -106,5 +105,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    RecorderView()
 }
