@@ -14,6 +14,7 @@ struct RecorderView: View {
     
     @State private var projectName: String = ""
     @State private var noName = true
+    @State private var isVisualizing = false
     
     var body: some View {
         VStack {
@@ -21,6 +22,9 @@ struct RecorderView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top, 10)
+            Spacer()
+            
+            VisualizerView(isVisualizing: $isVisualizing)
             Spacer()
             
             Button(action: {
@@ -34,6 +38,7 @@ struct RecorderView: View {
                     
                     try viewModel.startRecording(withName: projectName)
                     viewModel.record.toggle()
+                    isVisualizing = true
                 } catch {
                     print(error.localizedDescription)
                 }

@@ -13,7 +13,7 @@
 		4029F11B2C07D7A0000753E1 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F11A2C07D7A0000753E1 /* ProjectView.swift */; };
 		4029F11D2C07D7E8000753E1 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F11C2C07D7E8000753E1 /* Project.swift */; };
 		4029F11F2C07D967000753E1 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F11E2C07D967000753E1 /* ViewModel.swift */; };
-		4029F1212C07EF00000753E1 /* ProjectSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F1202C07EF00000753E1 /* ProjectSetupView.swift */; };
+		4029F1232C07F51B000753E1 /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F1222C07F51B000753E1 /* VisualizerView.swift */; };
 		405E3CE82C07C51D00E967BC /* Untitled_AudioProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E3CE72C07C51D00E967BC /* Untitled_AudioProjectApp.swift */; };
 		405E3CEA2C07C51D00E967BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E3CE92C07C51D00E967BC /* ContentView.swift */; };
 		405E3CEC2C07C51E00E967BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405E3CEB2C07C51E00E967BC /* Assets.xcassets */; };
@@ -47,7 +47,7 @@
 		4029F11A2C07D7A0000753E1 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		4029F11C2C07D7E8000753E1 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4029F11E2C07D967000753E1 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		4029F1202C07EF00000753E1 /* ProjectSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSetupView.swift; sourceTree = "<group>"; };
+		4029F1222C07F51B000753E1 /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
 		405E3CE42C07C51D00E967BC /* Untitled_AudioProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Untitled_AudioProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		405E3CE72C07C51D00E967BC /* Untitled_AudioProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled_AudioProjectApp.swift; sourceTree = "<group>"; };
 		405E3CE92C07C51D00E967BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				4029F1162C07D200000753E1 /* HomeView.swift */,
 				4029F11E2C07D967000753E1 /* ViewModel.swift */,
 				4029F1142C07D1D9000753E1 /* RecorderView.swift */,
-				4029F1202C07EF00000753E1 /* ProjectSetupView.swift */,
+				4029F1222C07F51B000753E1 /* VisualizerView.swift */,
 				4029F1182C07D246000753E1 /* Color+Ext.swift */,
 				4029F11A2C07D7A0000753E1 /* ProjectView.swift */,
 				4029F11C2C07D7E8000753E1 /* Project.swift */,
@@ -279,12 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4029F11B2C07D7A0000753E1 /* ProjectView.swift in Sources */,
+				4029F1232C07F51B000753E1 /* VisualizerView.swift in Sources */,
 				4029F1152C07D1D9000753E1 /* RecorderView.swift in Sources */,
 				4029F1172C07D200000753E1 /* HomeView.swift in Sources */,
 				405E3CEA2C07C51D00E967BC /* ContentView.swift in Sources */,
 				405E3CE82C07C51D00E967BC /* Untitled_AudioProjectApp.swift in Sources */,
 				4029F11D2C07D7E8000753E1 /* Project.swift in Sources */,
-				4029F1212C07EF00000753E1 /* ProjectSetupView.swift in Sources */,
 				4029F11F2C07D967000753E1 /* ViewModel.swift in Sources */,
 				4029F1192C07D246000753E1 /* Color+Ext.swift in Sources */,
 			);
