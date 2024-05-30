@@ -24,7 +24,7 @@ struct RecorderView: View {
                 .padding(.top, 10)
             Spacer()
             
-            VisualizerView(isVisualizing: $isVisualizing)
+            VisualizerView(isVisualizing: isVisualizing, nLines: .large)
             Spacer()
             
             Button(action: {

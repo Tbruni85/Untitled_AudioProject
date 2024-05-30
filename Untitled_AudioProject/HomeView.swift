@@ -11,37 +11,44 @@ struct HomeView: View {
     
     @EnvironmentObject var viewModel: ViewModel
     private let colums = Array(repeating: GridItem(.fixed(175)), count: 2)
+    
+    @State private var expandSheet: Bool = false
     @State var recoderVisible = false
+    @State var miniPlayerVisible = false
+    @Namespace private var animation
     
     var body: some View {
-        NavigationStack {
+        VStack {
+            HStack {
+                Text("Projects")
+                    .foregroundStyle(.primary)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Spacer()
+                Button(action: {
+                    recoderVisible.toggle()
+                }, label: {
+                    Image(systemName: "plus.app")
+                        .tint(.primary)
+                })
+            }
+            .padding()
+            
             if viewModel.audios.count > 0 {
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: colums, content: {
                         ForEach(viewModel.audios, id: \.self) { project in
                             ProjectView(projectName: project.relativeString.replacingOccurrences(of: ".m4a", with: ""))
                                 .onTapGesture {
+                                    viewModel.loadTrack(projectURL: project)
+                                    miniPlayerVisible.toggle()
                                     print("tapped \(project.relativeString)")
                                 }
+                                .toolbar(expandSheet ? .hidden : .visible, for: .tabBar)
                         }
                     })
                 }
-                .toolbar(content: {
-                    Button(action: {
-                        recoderVisible.toggle()
-                    }, label: {
-                        Image(systemName: "plus.app")
-                            .tint(.primary)
-                    })
-                })
-                .padding()
-                .navigationTitle("Projects")
-                .sheet(isPresented: $recoderVisible, content: {
-                    RecorderView()
-                })
-                .onAppear {
-                    viewModel.getAudios()
-                }
+                
             } else {
                 ContentUnavailableView(label: {
                     VStack {
@@ -59,14 +66,31 @@ struct HomeView: View {
                     })
                 })
                 .padding()
-                .navigationTitle("Projects")
                 .sheet(isPresented: $recoderVisible, content: {
                     RecorderView()
                 })
+                .opacity(expandSheet ? 0 : 1)
                 .onAppear {
                     viewModel.getAudios()
                 }
             }
+        }
+        .safeAreaInset(edge: .bottom) {
+            BottomSheetPlayer(expandSheet: $expandSheet,
+                              animation: animation)
+            .opacity(miniPlayerVisible ? 1 : 0)
+        }
+        .overlay {
+            if expandSheet {
+                ExpandedPlayer(expandSheet: $expandSheet, animation: animation)
+                    .transition(.asymmetric(insertion: .identity, removal: .offset(y: -5)))
+            }
+        }
+        .sheet(isPresented: $recoderVisible, content: {
+            RecorderView()
+        })
+        .onAppear {
+            viewModel.getAudios()
         }
     }
 }

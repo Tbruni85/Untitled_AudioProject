@@ -14,6 +14,9 @@
 		4029F11D2C07D7E8000753E1 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F11C2C07D7E8000753E1 /* Project.swift */; };
 		4029F11F2C07D967000753E1 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F11E2C07D967000753E1 /* ViewModel.swift */; };
 		4029F1232C07F51B000753E1 /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F1222C07F51B000753E1 /* VisualizerView.swift */; };
+		4029F1252C07F960000753E1 /* BottomSheetPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F1242C07F960000753E1 /* BottomSheetPlayer.swift */; };
+		4029F1292C07FC2C000753E1 /* MusicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F1282C07FC2C000753E1 /* MusicInfo.swift */; };
+		4029F12B2C07FC49000753E1 /* CustomPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029F12A2C07FC49000753E1 /* CustomPlayerButton.swift */; };
 		405E3CE82C07C51D00E967BC /* Untitled_AudioProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E3CE72C07C51D00E967BC /* Untitled_AudioProjectApp.swift */; };
 		405E3CEA2C07C51D00E967BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E3CE92C07C51D00E967BC /* ContentView.swift */; };
 		405E3CEC2C07C51E00E967BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405E3CEB2C07C51E00E967BC /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 		405E3CF92C07C51E00E967BC /* Untitled_AudioProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E3CF82C07C51E00E967BC /* Untitled_AudioProjectTests.swift */; };
 		405E3D032C07C51E00E967BC /* Untitled_AudioProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E3D022C07C51E00E967BC /* Untitled_AudioProjectUITests.swift */; };
 		405E3D052C07C51E00E967BC /* Untitled_AudioProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E3D042C07C51E00E967BC /* Untitled_AudioProjectUITestsLaunchTests.swift */; };
+		40CE80C82C080B4600198EDE /* ExpandedPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE80C72C080B4600198EDE /* ExpandedPlayer.swift */; };
+		40CE80CA2C080B6800198EDE /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE80C92C080B6800198EDE /* View+Ext.swift */; };
+		40CE80CC2C080B9500198EDE /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE80CB2C080B9500198EDE /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,9 @@
 		4029F11C2C07D7E8000753E1 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4029F11E2C07D967000753E1 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4029F1222C07F51B000753E1 /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
+		4029F1242C07F960000753E1 /* BottomSheetPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetPlayer.swift; sourceTree = "<group>"; };
+		4029F1282C07FC2C000753E1 /* MusicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicInfo.swift; sourceTree = "<group>"; };
+		4029F12A2C07FC49000753E1 /* CustomPlayerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlayerButton.swift; sourceTree = "<group>"; };
 		405E3CE42C07C51D00E967BC /* Untitled_AudioProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Untitled_AudioProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		405E3CE72C07C51D00E967BC /* Untitled_AudioProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled_AudioProjectApp.swift; sourceTree = "<group>"; };
 		405E3CE92C07C51D00E967BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +67,9 @@
 		405E3CFE2C07C51E00E967BC /* Untitled_AudioProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Untitled_AudioProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		405E3D022C07C51E00E967BC /* Untitled_AudioProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled_AudioProjectUITests.swift; sourceTree = "<group>"; };
 		405E3D042C07C51E00E967BC /* Untitled_AudioProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled_AudioProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		40CE80C72C080B4600198EDE /* ExpandedPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedPlayer.swift; sourceTree = "<group>"; };
+		40CE80C92C080B6800198EDE /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		40CE80CB2C080B9500198EDE /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,12 @@
 				4029F1182C07D246000753E1 /* Color+Ext.swift */,
 				4029F11A2C07D7A0000753E1 /* ProjectView.swift */,
 				4029F11C2C07D7E8000753E1 /* Project.swift */,
+				4029F1242C07F960000753E1 /* BottomSheetPlayer.swift */,
+				4029F1282C07FC2C000753E1 /* MusicInfo.swift */,
+				4029F12A2C07FC49000753E1 /* CustomPlayerButton.swift */,
+				40CE80C72C080B4600198EDE /* ExpandedPlayer.swift */,
+				40CE80CB2C080B9500198EDE /* PlayerView.swift */,
+				40CE80C92C080B6800198EDE /* View+Ext.swift */,
 				405E3CEB2C07C51E00E967BC /* Assets.xcassets */,
 				405E3CED2C07C51E00E967BC /* Preview Content */,
 			);
@@ -278,12 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40CE80CA2C080B6800198EDE /* View+Ext.swift in Sources */,
+				40CE80C82C080B4600198EDE /* ExpandedPlayer.swift in Sources */,
 				4029F11B2C07D7A0000753E1 /* ProjectView.swift in Sources */,
+				40CE80CC2C080B9500198EDE /* PlayerView.swift in Sources */,
 				4029F1232C07F51B000753E1 /* VisualizerView.swift in Sources */,
 				4029F1152C07D1D9000753E1 /* RecorderView.swift in Sources */,
 				4029F1172C07D200000753E1 /* HomeView.swift in Sources */,
 				405E3CEA2C07C51D00E967BC /* ContentView.swift in Sources */,
+				4029F1252C07F960000753E1 /* BottomSheetPlayer.swift in Sources */,
 				405E3CE82C07C51D00E967BC /* Untitled_AudioProjectApp.swift in Sources */,
+				4029F12B2C07FC49000753E1 /* CustomPlayerButton.swift in Sources */,
+				4029F1292C07FC2C000753E1 /* MusicInfo.swift in Sources */,
 				4029F11D2C07D7E8000753E1 /* Project.swift in Sources */,
 				4029F11F2C07D967000753E1 /* ViewModel.swift in Sources */,
 				4029F1192C07D246000753E1 /* Color+Ext.swift in Sources */,

@@ -10,12 +10,20 @@ import AVKit
 
 class ViewModel: ObservableObject {
     
-    @Published var projects: [Project] = []
     @Published var audios: [URL] = []
     @Published var alert = false
     @Published var named = false
     @Published var record = false
     
+    @Published var isPlaying = false
+    @Published var currentTime: String = "0:00"
+    @Published var currentPercentage: CGFloat = 0
+    
+    private var audioPlayer: AVAudioPlayer!
+    private var timer: Timer?
+    
+    var activeProject: URL?
+
     private var session: AVAudioSession!
     private var recorder: AVAudioRecorder!
     
@@ -65,11 +73,100 @@ class ViewModel: ObservableObject {
             let result = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .producesRelativePathURLs)
             audios.removeAll()
             result.forEach { filePath in
-                audios.append(filePath)
+                if filePath.relativePath.contains(".m4a") {
+                    audios.append(filePath)
+                }
             }
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func loadTrack(projectURL: URL) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: projectURL)
+                activeProject = projectURL
+                audioPlayerPlayPause()
+            } catch {
+                print("AVAudioPlayer could not be instantiated.")
+            }
+    }
+    
+    func audioPlayerPlayPause() {
+        if audioPlayer.isPlaying {
+            audioPlayer.pause()
+            isPlaying = false
+            guard timer != nil else { return }
+            timer?.invalidate()
+            timer = nil
+        } else {
+            audioPlayer.play()
+            isPlaying = true
+            guard timer == nil else { return }
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTrackTime), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func playOrPause() {
+        audioPlayerPlayPause()
+    }
+    
+    func forwardTrack() {
+        var timeForward = audioPlayer.currentTime
+        timeForward += 5.0
+        if timeForward < audioPlayer.duration {
+            audioPlayer.currentTime = timeForward
+            audioPlayer.play(atTime: timeForward)
+            updateTrackTime()
+        } else {
+            audioPlayer.currentTime = audioPlayer.duration
+        }
+    }
+    
+    func backwardTrack() {
+        var timeForward = audioPlayer.currentTime
+        timeForward -= 5.0
+        if timeForward > 0 {
+            audioPlayer.currentTime = timeForward
+            audioPlayer.play(atTime: timeForward)
+            updateTrackTime()
+        } else {
+            audioPlayer.currentTime = 0
+        }
+    }
+    
+    var trackLength: String {
+        guard let audioPlayer = audioPlayer else {
+            return  "--:--"
+        }
+        
+        return String(format: "%02d:%02d", ((Int)(audioPlayer.duration)) / 60, ((Int)(audioPlayer.duration)) % 60)
+    }
+    
+    @objc
+    func updateTrackTime() {
+        guard let audioPlayer = audioPlayer else {
+            return
+        }
+        if audioPlayer.isPlaying {
+            currentTime = String(format: "%02d:%02d", ((Int)(audioPlayer.currentTime)) / 60, ((Int)(audioPlayer.currentTime)) % 60)
+            currentPercentage = CGFloat(audioPlayer.currentTime / audioPlayer.duration)
+        }
+    }
+    
+    var playerImage: String {
+        "artwork_placeholder"
+    }
+    
+    var currentArtist: String {
+        "Unknown"
+    }
+    
+    var currentSong: String {
+        guard let project = activeProject else {
+            return ""
+        }
+        return project.relativeString.replacingOccurrences(of: ".m4a", with: "")
     }
 }
 
