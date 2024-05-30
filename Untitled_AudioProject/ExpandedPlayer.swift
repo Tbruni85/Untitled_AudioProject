@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExpandedPlayer: View {
     
+    @EnvironmentObject var viewModel: ViewModel
+    
     private struct Constants {
         static var grabIndicatorSize: CGSize = CGSize(width: 40, height: 5)
         static var horizontalPadding: CGFloat = 25
@@ -61,23 +63,38 @@ struct ExpandedPlayer: View {
                         .opacity(animateContent ? 1 : 0)
                         .offset(y: animateContent ? 0 : size.height)
                     
-                    GeometryReader {
-                        let size = $0.size
-                        
-                        Image(audioViewModel.playerImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: size.width, height: size.height)
-                            .clipShape(RoundedRectangle(cornerRadius: Constants.imageArtworkCornerRaius(animateContent),
-                                                        style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/))
-                    }
-                    .matchedGeometryEffect(id: "ARTWORK", in: animation)
-                    //the height is derived by the width - the horizontal padding (x2)
-                    .frame(height: size.width - Constants.artworkWidth())
-                    .padding(.vertical, Constants.playerVerticalPadding(size: size))
-                    
-                    PlayerView(mainSize: size)
-                        .offset(y: animateContent ? 0 : size.height)
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.ultraThinMaterial)
+                        .opacity(animateContent ? 1 : 0)
+                        .overlay {
+                            VStack(alignment: .center) {
+                                Text(audioViewModel.currentSong)
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .padding(.top, 15)
+                                    .opacity(animateContent ? 1 : 0)
+                                    .offset(y: animateContent ? 0 : size.height)
+                                
+                                GeometryReader {
+                                    let size = $0.size
+                                    
+                                    Circle()
+                                        .fill(.orange)
+                                        .frame(width: size.width, height: size.height)
+                                        .overlay {
+                                            VisualizerView(isVisualizing: viewModel.isPlaying, nLines: .medium)
+                                                .matchedGeometryEffect(id: "VIZ", in: animation)
+                                        }
+                                }
+                                .matchedGeometryEffect(id: "ARTWORK", in: animation)
+                                //the height is derived by the width - the horizontal padding (x2)
+                                .frame(width: (size.width - Constants.artworkWidth()) / 2, height: (size.width - Constants.artworkWidth()) / 2)
+                                .padding(.vertical, Constants.playerVerticalPadding(size: size))
+                                PlayerView(mainSize: size)
+                                    .offset(x: 25, y: animateContent ? 0 : size.height)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 400, alignment: .top)
                 }
                 .padding(.top, safeAreaInsets.top + (safeAreaInsets.bottom == 0 ? 10 : 0))
                 .padding(.bottom, safeAreaInsets.bottom == 0 ? 10 : safeAreaInsets.bottom)
@@ -105,7 +122,6 @@ struct ExpandedPlayer: View {
             )
             .ignoresSafeArea(.container, edges: .all)
         }
-        
         .onAppear {
             withAnimation(.easeInOut(duration: Constants.animationDuration)) {
                 animateContent = true

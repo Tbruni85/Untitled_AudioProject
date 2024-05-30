@@ -12,6 +12,7 @@ struct VisualizerView: View {
     enum LineType: Int {
         case mini = 5
         case large = 18
+        case medium = 10
         
         var minRange: Range<CGFloat> {
             switch self {
@@ -19,6 +20,8 @@ struct VisualizerView: View {
                 Range<CGFloat>(uncheckedBounds: (lower: 5, upper: 90))
             case .mini:
                 Range<CGFloat>(uncheckedBounds: (lower: 2, upper: 20))
+            case .medium:
+                Range<CGFloat>(uncheckedBounds: (lower: 2, upper: 60))
             }
         }
         
@@ -28,6 +31,8 @@ struct VisualizerView: View {
                 Range<CGFloat>(uncheckedBounds: (lower: 2, upper: 200))
             case .mini:
                 Range<CGFloat>(uncheckedBounds: (lower: 5, upper: 35))
+            case .medium:
+                Range<CGFloat>(uncheckedBounds: (lower: 2, upper: 90))
             }
         }
         
@@ -37,6 +42,8 @@ struct VisualizerView: View {
                 5
             case .mini:
                 2
+            case .medium:
+                5
             }
         }
         
@@ -46,6 +53,8 @@ struct VisualizerView: View {
                 10
             case .mini:
                 2
+            case .medium:
+                5
             }
         }
     }

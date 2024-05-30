@@ -120,6 +120,7 @@ class ViewModel: ObservableObject {
             updateTrackTime()
         } else {
             audioPlayer.currentTime = audioPlayer.duration
+            isPlaying = false
         }
     }
     
@@ -151,6 +152,9 @@ class ViewModel: ObservableObject {
         if audioPlayer.isPlaying {
             currentTime = String(format: "%02d:%02d", ((Int)(audioPlayer.currentTime)) / 60, ((Int)(audioPlayer.currentTime)) % 60)
             currentPercentage = CGFloat(audioPlayer.currentTime / audioPlayer.duration)
+            if audioPlayer.currentTime == audioPlayer.duration {
+                playOrPause()
+            }
         }
     }
     

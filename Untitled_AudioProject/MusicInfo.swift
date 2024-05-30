@@ -59,6 +59,7 @@ struct MusicInfo: View {
                     Spacer()
                     
                     VisualizerView(isVisualizing: viewModel.isPlaying, nLines: .mini)
+                        .matchedGeometryEffect(id: "VIZ", in: animation)
                     
                 }
                 .foregroundColor(.primary)
